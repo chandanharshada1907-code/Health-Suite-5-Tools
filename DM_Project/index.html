@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI & Health Calculator | Discrete Mathematics Project</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
+          <div>
+            <div>HealthCalc</div>
+            <div class="brand-badge">DM Project</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-category">Main Navigation</div>
+        <a href="dashboard.html" class="nav-item-link">
+          <i class="fas fa-th-large"></i> <span>Dashboard</span>
+        </a>
+        <a href="profile.html" class="nav-item-link">
+          <i class="fas fa-user"></i> <span>Profile</span>
+        </a>
+        <a href="calculator.html" class="nav-item-link">
+          <i class="fas fa-calculator"></i> <span>BMI Calculator</span>
+        </a>
+
+        <div class="menu-category">Tracking & Data</div>
+        <a href="health-metrics.html" class="nav-item-link">
+          <i class="fas fa-notes-medical"></i> <span>Health Metrics</span>
+        </a>
+        <a href="goals.html" class="nav-item-link">
+          <i class="fas fa-bullseye"></i> <span>Goals</span>
+        </a>
+        <a href="water.html" class="nav-item-link">
+          <i class="fas fa-tint"></i> <span>Water Intake</span>
+        </a>
+        <a href="sleep.html" class="nav-item-link">
+          <i class="fas fa-bed"></i> <span>Sleep Tracker</span>
+        </a>
+        <a href="activity.html" class="nav-item-link">
+          <i class="fas fa-running"></i> <span>Activity & Fitness</span>
+        </a>
+        <a href="nutrition.html" class="nav-item-link">
+          <i class="fas fa-utensils"></i> <span>Nutrition</span>
+        </a>
+
+        <div class="menu-category">Analytics & Reports</div>
+        <a href="history.html" class="nav-item-link">
+          <i class="fas fa-history"></i> <span>History Log</span>
+        </a>
+        <a href="analytics.html" class="nav-item-link">
+          <i class="fas fa-chart-line"></i> <span>Analytics</span>
+        </a>
+        <a href="recommendations.html" class="nav-item-link">
+          <i class="fas fa-lightbulb"></i> <span>Recommendations</span>
+        </a>
+        <a href="report.html" class="nav-item-link">
+          <i class="fas fa-file-contract"></i> <span>Health Report</span>
+        </a>
+
+        <div class="menu-category">Mathematics & System</div>
+        <a href="dm-lab.html" class="nav-item-link">
+          <i class="fas fa-square-root-variable"></i> <span>DM Math Lab</span>
+        </a>
+        <a href="settings.html" class="nav-item-link">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="admin_login.html" class="dm-lab-badge text-decoration-none">
+          <i class="fas fa-user-shield text-primary"></i>
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main);">Admin Portal</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">System Control</div>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <!-- Top Header Bar -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="page-title-text">Welcome Portal</h1>
+        </div>
+        <div class="header-right">
+          <div class="user-quick-profile" onclick="window.location.href='profile.html'">
+            <div class="user-avatar" id="header-user-avatar">AM</div>
+            <div class="user-info-text">
+              <div class="name" id="header-user-name">Alex Morgan</div>
+              <div class="subtext">Student User</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Body -->
+      <main class="page-body">
+        <div class="row g-4 align-items-center mb-4">
+          <div class="col-lg-8">
+            <div class="custom-card border-0 text-white" style="background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);">
+              <span class="badge bg-white text-primary fw-bold mb-2">Discrete Mathematics Project</span>
+              <h2 class="fw-extrabold mb-2">BMI & Health Analytics Portal</h2>
+              <p class="opacity-90 mb-4">
+                A college-level application modeling health metrics using mathematical formulations, set theory, graph theory, and discrete statistical models.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a href="dashboard.html" class="btn btn-light fw-bold px-4 py-2 text-primary">
+                  <i class="fas fa-rocket me-2"></i> Launch Dashboard
+                </a>
+                <a href="dm-lab.html" class="btn btn-outline-light fw-bold px-4 py-2">
+                  <i class="fas fa-square-root-variable me-2"></i> DM Math Lab
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="custom-card h-100">
+              <div class="card-header-flex">
+                <h5 class="card-title-text"><i class="fas fa-server text-primary"></i> System Overview</h5>
+                <span class="badge bg-success-subtle text-success fw-bold">Active</span>
+              </div>
+              <ul class="list-group list-group-flush text-sm fs-7">
+                <li class="list-group-item d-flex justify-content-between px-0">
+                  <span class="text-muted">Storage Mode:</span>
+                  <span class="fw-bold">Client LocalStorage</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between px-0">
+                  <span class="text-muted">Modules Available:</span>
+                  <span class="fw-bold">19 Pages</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between px-0">
+                  <span class="text-muted">Math Engine:</span>
+                  <span class="fw-bold">DM Math Lab v1.0</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="fw-bold text-main mb-3">Explore Key Features</h4>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="custom-card text-center h-100">
+              <div class="card-icon-badge icon-primary mx-auto mb-3" style="width: 50px; height: 50px; font-size: 1.3rem;">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <h5 class="fw-bold mb-2">BMI & BMR Metrics</h5>
+              <p class="text-muted fs-7 mb-3">Calculate Body Mass Index, Basal Metabolic Rate, and TDEE with discrete activity multipliers.</p>
+              <a href="calculator.html" class="btn btn-sm btn-outline-custom w-100 fw-bold">Open Calculator</a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="custom-card text-center h-100">
+              <div class="card-icon-badge icon-emerald mx-auto mb-3" style="width: 50px; height: 50px; font-size: 1.3rem;">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Comprehensive Health</h5>
+              <p class="text-muted fs-7 mb-3">Track water intake, sleep cycles, physical activity, and macronutrient balances daily.</p>
+              <a href="health-metrics.html" class="btn btn-sm btn-outline-custom w-100 fw-bold">View Health Metrics</a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="custom-card text-center h-100">
+              <div class="card-icon-badge icon-secondary mx-auto mb-3" style="width: 50px; height: 50px; font-size: 1.3rem;">
+                <i class="fas fa-square-root-variable"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Discrete Math Lab</h5>
+              <p class="text-muted fs-7 mb-3">Learn how propositional logic, matrices, and discrete algorithms model health data.</p>
+              <a href="dm-lab.html" class="btn btn-sm btn-outline-custom w-100 fw-bold">Visit Math Lab</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div>&copy; 2026 <strong>BMI & Health Calculator</strong> — Discrete Mathematics Project</div>
+        <div>Version 1.0 (Step 1 Foundation)</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | BMI & Health Calculator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
+          <div>
+            <div>HealthCalc</div>
+            <div class="brand-badge">DM Project</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-category">Main Navigation</div>
+        <a href="dashboard.html" class="nav-item-link active">
+          <i class="fas fa-th-large"></i> <span>Dashboard</span>
+        </a>
+        <a href="profile.html" class="nav-item-link">
+          <i class="fas fa-user"></i> <span>Profile</span>
+        </a>
+        <a href="calculator.html" class="nav-item-link">
+          <i class="fas fa-calculator"></i> <span>BMI Calculator</span>
+        </a>
+
+        <div class="menu-category">Tracking & Data</div>
+        <a href="health-metrics.html" class="nav-item-link">
+          <i class="fas fa-notes-medical"></i> <span>Health Metrics</span>
+        </a>
+        <a href="goals.html" class="nav-item-link">
+          <i class="fas fa-bullseye"></i> <span>Goals</span>
+        </a>
+        <a href="water.html" class="nav-item-link">
+          <i class="fas fa-tint"></i> <span>Water Intake</span>
+        </a>
+        <a href="sleep.html" class="nav-item-link">
+          <i class="fas fa-bed"></i> <span>Sleep Tracker</span>
+        </a>
+        <a href="activity.html" class="nav-item-link">
+          <i class="fas fa-running"></i> <span>Activity & Fitness</span>
+        </a>
+        <a href="nutrition.html" class="nav-item-link">
+          <i class="fas fa-utensils"></i> <span>Nutrition</span>
+        </a>
+
+        <div class="menu-category">Analytics & Reports</div>
+        <a href="history.html" class="nav-item-link">
+          <i class="fas fa-history"></i> <span>History Log</span>
+        </a>
+        <a href="analytics.html" class="nav-item-link">
+          <i class="fas fa-chart-line"></i> <span>Analytics</span>
+        </a>
+        <a href="recommendations.html" class="nav-item-link">
+          <i class="fas fa-lightbulb"></i> <span>Recommendations</span>
+        </a>
+        <a href="report.html" class="nav-item-link">
+          <i class="fas fa-file-contract"></i> <span>Health Report</span>
+        </a>
+
+        <div class="menu-category">Mathematics & System</div>
+        <a href="dm-lab.html" class="nav-item-link">
+          <i class="fas fa-square-root-variable"></i> <span>DM Math Lab</span>
+        </a>
+        <a href="settings.html" class="nav-item-link">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="admin_login.html" class="dm-lab-badge text-decoration-none">
+          <i class="fas fa-user-shield text-primary"></i>
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main);">Admin Portal</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">System Control</div>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <!-- Top Header Bar -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="page-title-text">Dashboard Overview</h1>
+        </div>
+        <div class="header-right">
+          <div class="user-quick-profile" onclick="window.location.href='profile.html'">
+            <div class="user-avatar" id="header-user-avatar">AM</div>
+            <div class="user-info-text">
+              <div class="name" id="header-user-name">Alex Morgan</div>
+              <div class="subtext">Student User</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Body -->
+      <main class="page-body">
+
+        <!-- Welcome Banner & Quick Actions -->
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4 gap-3">
+          <div>
+            <h3 class="fw-bold text-main mb-1" id="dash-welcome-name">Hello, Alex! 👋</h3>
+            <p class="text-muted mb-0">Here is your discrete health metrics summary for today.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="calculator.html" class="btn btn-primary-custom">
+              <i class="fas fa-plus"></i> Recalculate BMI
+            </a>
+            <a href="report.html" class="btn btn-outline-custom">
+              <i class="fas fa-download"></i> Full Report
+            </a>
+          </div>
+        </div>
+
+        <!-- Metric Cards Grid (8 Cards) -->
+        <div class="row g-3 mb-4">
+          <!-- 1. Current BMI -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Current BMI</span>
+                <div class="card-icon-badge icon-primary"><i class="fas fa-weight-scale"></i></div>
+              </div>
+              <div class="stat-value" id="dash-current-bmi">
+                23.67 <span class="stat-unit">kg/m²</span>
+              </div>
+              <div class="stat-footer">
+                <span class="stat-badge badge-normal" id="dash-bmi-badge"><i class="fas fa-check"></i> Normal Weight</span>
+                <span class="text-muted">Target: 22.5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Current Weight -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Current Weight</span>
+                <div class="card-icon-badge icon-secondary"><i class="fas fa-weight"></i></div>
+              </div>
+              <div class="stat-value" id="dash-current-weight">
+                72.5 <span class="stat-unit">kg</span>
+              </div>
+              <div class="stat-footer">
+                <span class="stat-badge badge-info"><i class="fas fa-arrow-down"></i> -1.7 kg this month</span>
+                <span class="text-muted">Goal: 68 kg</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. BMR -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Basal Metabolic Rate (BMR)</span>
+                <div class="card-icon-badge icon-amber"><i class="fas fa-fire"></i></div>
+              </div>
+              <div class="stat-value" id="dash-bmr-val">
+                1,685 <span class="stat-unit">kcal/day</span>
+              </div>
+              <div class="stat-footer">
+                <span class="text-muted fs-7">Mifflin-St Jeor Formula</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. TDEE -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">TDEE (Total Energy)</span>
+                <div class="card-icon-badge icon-emerald"><i class="fas fa-bolt"></i></div>
+              </div>
+              <div class="stat-value" id="dash-tdee-val">
+                2,611 <span class="stat-unit">kcal/day</span>
+              </div>
+              <div class="stat-footer">
+                <span class="stat-badge badge-normal" id="dash-tdee-badge">Moderate Activity</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Water Intake -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Water Intake</span>
+                <div class="card-icon-badge icon-secondary"><i class="fas fa-tint"></i></div>
+              </div>
+              <div class="stat-value" id="dash-water-val">
+                1,750 / 2,000 <span class="stat-unit">ml</span>
+              </div>
+              <div class="stat-footer w-100">
+                <div class="progress progress-thin w-100 mt-1">
+                  <div class="progress-bar bg-info" id="dash-water-bar" role="progressbar" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Sleep -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Sleep Duration</span>
+                <div class="card-icon-badge icon-primary"><i class="fas fa-bed"></i></div>
+              </div>
+              <div class="stat-value">
+                7.2 <span class="stat-unit">hrs</span>
+              </div>
+              <div class="stat-footer">
+                <span class="stat-badge badge-normal"><i class="fas fa-smile"></i> Good Quality</span>
+                <span class="text-muted">Goal: 8.0 hrs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Activity -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Daily Steps</span>
+                <div class="card-icon-badge icon-emerald"><i class="fas fa-running"></i></div>
+              </div>
+              <div class="stat-value">
+                9,150 <span class="stat-unit">steps</span>
+              </div>
+              <div class="stat-footer w-100">
+                <div class="progress progress-thin w-100 mt-1">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 91%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Goal Progress -->
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="custom-card stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Overall Goal Progress</span>
+                <div class="card-icon-badge icon-amber"><i class="fas fa-bullseye"></i></div>
+              </div>
+              <div class="stat-value" id="dash-goal-progress-val">
+                68% <span class="stat-unit">completed</span>
+              </div>
+              <div class="stat-footer w-100">
+                <div class="progress progress-thin w-100 mt-1">
+                  <div class="progress-bar bg-warning" id="dash-goal-progress-bar" role="progressbar" style="width: 68%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder Areas: Graphs, Goal Progress & Wellness Summary -->
+        <div class="row g-4 mb-4">
+          <!-- BMI History Graph Placeholder -->
+          <div class="col-12 col-lg-6">
+            <div class="custom-card h-100">
+              <div class="card-header-flex">
+                <h5 class="card-title-text">
+                  <i class="fas fa-chart-line text-primary"></i> BMI History Trend
+                </h5>
+                <a href="history.html" class="btn btn-sm btn-outline-custom">View Full History</a>
+              </div>
+              <div class="chart-container-placeholder">
+                <div class="chart-skeleton">
+                  <i class="fas fa-chart-area"></i>
+                  <div class="fw-bold">BMI Trajectory Placeholder Graph</div>
+                  <div class="fs-7 opacity-75">Chart.js graph visualization container for step 2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weight Progress Graph Placeholder -->
+          <div class="col-12 col-lg-6">
+            <div class="custom-card h-100">
+              <div class="card-header-flex">
+                <h5 class="card-title-text">
+                  <i class="fas fa-weight text-info"></i> Weight Progression Chart
+                </h5>
+                <a href="analytics.html" class="btn btn-sm btn-outline-custom">Analytics</a>
+              </div>
+              <div class="chart-container-placeholder">
+                <div class="chart-skeleton">
+                  <i class="fas fa-chart-line"></i>
+                  <div class="fw-bold">Weight Log Progression Placeholder Graph</div>
+                  <div class="fs-7 opacity-75">Interactive historical curve powered by Chart.js</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goal Progress & Wellness Summary Row -->
+        <div class="row g-4">
+          <!-- Goal Progress Section -->
+          <div class="col-12 col-lg-7">
+            <div class="custom-card h-100">
+              <div class="card-header-flex">
+                <h5 class="card-title-text">
+                  <i class="fas fa-tasks text-success"></i> Active Health Goals
+                </h5>
+                <a href="goals.html" class="btn btn-sm btn-outline-custom">Manage Goals</a>
+              </div>
+
+              <div class="d-flex flex-column gap-3">
+                <div>
+                  <div class="d-flex justify-content-between fs-7 fw-bold mb-1">
+                    <span>Weight Target (68.0 kg)</span>
+                    <span class="text-primary">72.5 / 68.0 kg (65%)</span>
+                  </div>
+                  <div class="progress progress-thin">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 65%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="d-flex justify-content-between fs-7 fw-bold mb-1">
+                    <span>Daily Water Hydration (2,500 ml)</span>
+                    <span class="text-info">1,750 / 2,500 ml (70%)</span>
+                  </div>
+                  <div class="progress progress-thin">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 70%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="d-flex justify-content-between fs-7 fw-bold mb-1">
+                    <span>Daily Step Count (10,000 steps)</span>
+                    <span class="text-success">9,150 / 10,000 steps (91%)</span>
+                  </div>
+                  <div class="progress progress-thin">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 91%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="d-flex justify-content-between fs-7 fw-bold mb-1">
+                    <span>Caloric Target (2,100 kcal)</span>
+                    <span class="text-warning">1,950 / 2,100 kcal (92%)</span>
+                  </div>
+                  <div class="progress progress-thin">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 92%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wellness Summary -->
+          <div class="col-12 col-lg-5">
+            <div class="custom-card h-100">
+              <div class="card-header-flex">
+                <h5 class="card-title-text">
+                  <i class="fas fa-heartbeat text-danger"></i> Wellness Summary
+                </h5>
+                <a href="recommendations.html" class="btn btn-sm btn-outline-custom">Tips</a>
+              </div>
+
+              <div class="p-3 bg-light rounded-3 mb-3 border">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge bg-success">Optimal Score</span>
+                  <span class="fw-bold fs-7 text-muted">Discrete Health Score: 87/100</span>
+                </div>
+                <p class="fs-7 text-muted mb-0">
+                  Your BMI is in the normal health band. Water intake is optimal, and step counts reflect strong cardiovascular health.
+                </p>
+              </div>
+
+              <!-- Quick Math Lab Highlight -->
+              <div class="dm-lab-card p-3">
+                <div class="fw-bold mb-1"><i class="fas fa-square-root-variable me-1"></i> Discrete Math Model</div>
+                <div class="fs-7 opacity-90 mb-2">Health Index \( H \in [0, 100] \) modeled as a weighted linear combination of normalized metric vectors.</div>
+                <a href="dm-lab.html" class="btn btn-sm btn-light text-dark fw-bold">Explore Formula</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div>&copy; 2026 <strong>BMI & Health Calculator</strong> — Discrete Mathematics Project</div>
+        <div>Version 1.0 (Step 1 Foundation)</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

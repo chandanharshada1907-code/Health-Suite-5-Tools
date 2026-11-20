@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Metrics | BMI & Health Calculator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
+          <div>
+            <div>HealthCalc</div>
+            <div class="brand-badge">DM Project</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-category">Main Navigation</div>
+        <a href="dashboard.html" class="nav-item-link">
+          <i class="fas fa-th-large"></i> <span>Dashboard</span>
+        </a>
+        <a href="profile.html" class="nav-item-link">
+          <i class="fas fa-user"></i> <span>Profile</span>
+        </a>
+        <a href="calculator.html" class="nav-item-link">
+          <i class="fas fa-calculator"></i> <span>BMI Calculator</span>
+        </a>
+
+        <div class="menu-category">Tracking & Data</div>
+        <a href="health-metrics.html" class="nav-item-link active">
+          <i class="fas fa-notes-medical"></i> <span>Health Metrics</span>
+        </a>
+        <a href="goals.html" class="nav-item-link">
+          <i class="fas fa-bullseye"></i> <span>Goals</span>
+        </a>
+        <a href="water.html" class="nav-item-link">
+          <i class="fas fa-tint"></i> <span>Water Intake</span>
+        </a>
+        <a href="sleep.html" class="nav-item-link">
+          <i class="fas fa-bed"></i> <span>Sleep Tracker</span>
+        </a>
+        <a href="activity.html" class="nav-item-link">
+          <i class="fas fa-running"></i> <span>Activity & Fitness</span>
+        </a>
+        <a href="nutrition.html" class="nav-item-link">
+          <i class="fas fa-utensils"></i> <span>Nutrition</span>
+        </a>
+
+        <div class="menu-category">Analytics & Reports</div>
+        <a href="history.html" class="nav-item-link">
+          <i class="fas fa-history"></i> <span>History Log</span>
+        </a>
+        <a href="analytics.html" class="nav-item-link">
+          <i class="fas fa-chart-line"></i> <span>Analytics</span>
+        </a>
+        <a href="recommendations.html" class="nav-item-link">
+          <i class="fas fa-lightbulb"></i> <span>Recommendations</span>
+        </a>
+        <a href="report.html" class="nav-item-link">
+          <i class="fas fa-file-contract"></i> <span>Health Report</span>
+        </a>
+
+        <div class="menu-category">Mathematics & System</div>
+        <a href="dm-lab.html" class="nav-item-link">
+          <i class="fas fa-square-root-variable"></i> <span>DM Math Lab</span>
+        </a>
+        <a href="settings.html" class="nav-item-link">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="admin_login.html" class="dm-lab-badge text-decoration-none">
+          <i class="fas fa-user-shield text-primary"></i>
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main);">Admin Portal</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">System Control</div>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <header class="app-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="page-title-text">Comprehensive Health Metrics</h1>
+        </div>
+        <div class="header-right">
+          <div class="user-quick-profile" onclick="window.location.href='profile.html'">
+            <div class="user-avatar" id="header-user-avatar">AM</div>
+            <div class="user-info-text">
+              <div class="name" id="header-user-name">Alex Morgan</div>
+              <div class="subtext">Student User</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-body">
+        <!-- EMPTY PROFILE REQUIRED BANNER (Hidden if profile exists) -->
+        <div id="metrics-profile-required" class="custom-card text-center p-5 d-none">
+          <div class="card-icon-badge icon-amber mx-auto mb-3" style="width: 70px; height: 70px; font-size: 2rem;">
+            <i class="fas fa-id-card-clip"></i>
+          </div>
+          <h3 class="fw-extrabold text-main mb-2">Complete your profile first</h3>
+          <p class="text-muted fs-6 mb-4 mx-auto" style="max-width: 520px;">
+            Please complete your profile first with your age, height, weight, and activity level to view health metrics.
+          </p>
+          <a href="profile.html" class="btn btn-primary-custom px-4 py-2 fw-bold">
+            <i class="fas fa-arrow-right me-2"></i> Go to Profile
+          </a>
+        </div>
+
+        <!-- MAIN HEALTH METRICS DASHBOARD CONTAINER -->
+        <div id="metrics-dashboard-body" class="d-flex flex-column gap-4">
+          <!-- User Profile Overview Banner -->
+          <div class="custom-card border-0 text-white" style="background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+              <div>
+                <span class="badge bg-white text-primary fw-bold mb-2">Active Profile Parameters</span>
+                <h3 class="fw-bold mb-1" id="metrics-profile-name">Alex Morgan</h3>
+                <div class="d-flex flex-wrap gap-2 text-white-50 fs-7 mt-2">
+                  <span class="badge bg-white-10 text-white border border-white-20" id="chip-age">Age: 21</span>
+                  <span class="badge bg-white-10 text-white border border-white-20" id="chip-gender">Gender: Male</span>
+                  <span class="badge bg-white-10 text-white border border-white-20" id="chip-height">Height: 175 cm</span>
+                  <span class="badge bg-white-10 text-white border border-white-20" id="chip-weight">Weight: 72.5 kg</span>
+                  <span class="badge bg-white-10 text-white border border-white-20" id="chip-activity">Activity: Moderately Active</span>
+                </div>
+              </div>
+              <div>
+                <a href="profile.html" class="btn btn-light text-primary fw-bold btn-sm px-3 py-2">
+                  <i class="fas fa-user-pen me-1"></i> Edit Profile
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 Health Metric Cards Grid -->
+          <div class="row g-4">
+            <!-- 1. BMR Card -->
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="custom-card stat-card h-100">
+                <div class="stat-header">
+                  <span class="stat-label">Basal Metabolic Rate (BMR)</span>
+                  <div class="card-icon-badge icon-amber"><i class="fas fa-fire"></i></div>
+                </div>
+
+                <div id="bmr-standard-view">
+                  <div class="stat-value text-amber mb-1" id="metric-bmr-value">
+                    1,685 <span class="stat-unit">kcal/day</span>
+                  </div>
+                  <p class="fs-7 text-muted mb-2">
+                    Resting energy expenditure required to sustain basic metabolic life functions at complete physiological rest.
+                  </p>
+                  <div class="stat-footer border-top pt-2">
+                    <span class="text-muted fs-8">Formula: Mifflin-St Jeor Equation</span>
+                  </div>
+                </div>
+
+                <!-- Gender Other / Prefer Not to Say Notice -->
+                <div id="bmr-notice-view" class="alert alert-warning fs-7 border-0 mb-0 d-none">
+                  <i class="fas fa-circle-info me-1"></i>
+                  BMR estimate requires a sex-specific equation; select Male or Female if you want to demonstrate the standard Mifflin-St Jeor equations.
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. TDEE Card -->
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="custom-card stat-card h-100">
+                <div class="stat-header">
+                  <span class="stat-label">TDEE (Total Energy Expenditure)</span>
+                  <div class="card-icon-badge icon-emerald"><i class="fas fa-bolt"></i></div>
+                </div>
+                <div class="stat-value text-success mb-1" id="metric-tdee-value">
+                  2,611 <span class="stat-unit">kcal/day</span>
+                </div>
+                <div class="fs-7 text-muted mb-2" id="metric-tdee-breakdown">
+                  1,685 kcal &times; 1.55 (Moderately Active)
+                </div>
+                <p class="fs-8 text-muted mb-2">
+                  Estimated daily energy expenditure considering your daily activity level factor.
+                </p>
+                <div class="stat-footer border-top pt-2">
+                  <span class="stat-badge badge-normal" id="metric-activity-badge">Moderately Active (x1.55)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. BMI Integration Card -->
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="custom-card stat-card h-100">
+                <div class="stat-header">
+                  <span class="stat-label">Body Mass Index (BMI)</span>
+                  <div class="card-icon-badge icon-primary"><i class="fas fa-weight-scale"></i></div>
+                </div>
+                <div class="stat-value text-primary mb-1" id="metric-bmi-value">
+                  23.67 <span class="stat-unit">kg/m²</span>
+                </div>
+                <div class="mb-2">
+                  <span class="badge bg-success" id="metric-bmi-badge">Normal Range</span>
+                </div>
+                <p class="fs-7 text-muted mb-2">
+                  Standard screening index calculated from weight and height.
+                </p>
+                <div class="mt-auto">
+                  <a href="calculator.html" class="btn btn-sm btn-outline-primary w-100 fw-bold">
+                    <i class="fas fa-calculator me-1"></i> Open BMI Calculator
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Waist-to-Height Ratio Card -->
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="custom-card stat-card h-100">
+                <div class="stat-header">
+                  <span class="stat-label">Waist-to-Height Ratio</span>
+                  <div class="card-icon-badge icon-secondary"><i class="fas fa-tape"></i></div>
+                </div>
+
+                <div id="waist-available-view">
+                  <div class="stat-value text-info mb-1" id="metric-waist-ratio-value">
+                    0.46
+                  </div>
+                  <p class="fs-7 text-muted mb-2">
+                    This is a simple ratio comparing waist circumference with height.
+                  </p>
+                  <div class="stat-footer border-top pt-2">
+                    <span class="text-muted fs-8" id="waist-ratio-breakdown">Waist: 80 cm / Height: 175 cm</span>
+                  </div>
+                </div>
+
+                <div id="waist-missing-view" class="d-none">
+                  <div class="stat-value text-muted mb-1">Not available</div>
+                  <p class="fs-7 text-muted mb-3">
+                    Add waist circumference in your profile to calculate this ratio.
+                  </p>
+                  <a href="profile.html" class="btn btn-sm btn-outline-custom w-100 fw-bold">
+                    <i class="fas fa-plus me-1"></i> Add Waist in Profile
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Estimated Maximum Heart Rate Card -->
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="custom-card stat-card h-100">
+                <div class="stat-header">
+                  <span class="stat-label">Estimated Max Heart Rate</span>
+                  <div class="card-icon-badge icon-rose" style="background:#ffe4e6; color:#f43f5e;"><i class="fas fa-heartbeat"></i></div>
+                </div>
+                <div class="stat-value text-danger mb-1" id="metric-max-hr-value">
+                  199 <span class="stat-unit">bpm</span>
+                </div>
+                <p class="fs-7 text-muted mb-2">
+                  Estimated Maximum Heart Rate (\( 220 - \text{age} \)). Age-based educational estimate of peak physiological heart rate.
+                </p>
+                <div class="stat-footer border-top pt-2">
+                  <span class="text-muted fs-8" id="max-hr-breakdown">220 - 21 yrs = 199 bpm</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Heart Rate Training Zones Card -->
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="custom-card stat-card h-100">
+                <div class="stat-header">
+                  <span class="stat-label">Heart Rate Training Zones</span>
+                  <div class="card-icon-badge icon-primary"><i class="fas fa-chart-simple"></i></div>
+                </div>
+                <div class="d-flex flex-column gap-2 mb-2 fs-7">
+                  <div class="p-2 bg-light rounded border">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="fw-bold text-main">Moderate Intensity (50%–70%)</span>
+                      <strong class="text-primary" id="zone-moderate-val">100 - 139 bpm</strong>
+                    </div>
+                    <div class="fs-8 text-muted">Cardiovascular warm-up & aerobic endurance</div>
+                  </div>
+                  <div class="p-2 bg-light rounded border">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="fw-bold text-main">Vigorous Intensity (70%–85%)</span>
+                      <strong class="text-danger" id="zone-vigorous-val">139 - 169 bpm</strong>
+                    </div>
+                    <div class="fs-8 text-muted">Cardio conditioning & stamina enhancement</div>
+                  </div>
+                </div>
+                <div class="stat-footer border-top pt-2">
+                  <span class="text-muted fs-8">Based on HR Max (199 bpm)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FULL WIDTH: MATHEMATICS BEHIND HEALTH METRICS -->
+          <div class="custom-card mt-2">
+            <div class="card-header-flex border-bottom pb-3 mb-4">
+              <div>
+                <h5 class="card-title-text"><i class="fas fa-square-root-variable text-primary me-2"></i> Mathematics Behind Health Metrics</h5>
+                <p class="text-muted fs-7 mb-0">Multivariable linear equations, scalar activity scaling, and numerical interval logic.</p>
+              </div>
+              <span class="badge bg-primary-subtle text-primary fw-bold">Discrete Math Model</span>
+            </div>
+
+            <div class="row g-4">
+              <!-- 1. BMR Multivariable Equation -->
+              <div class="col-12 col-md-4">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <h6 class="fw-bold text-main mb-2"><i class="fas fa-fire text-amber me-1"></i> 1. Mifflin-St Jeor Transform</h6>
+                  <div class="p-2 bg-white rounded border font-monospace fs-8 mb-2 text-center text-primary fw-bold">
+                    \( f(W, H, A, s) = 10W + 6.25H - 5A + s \)
+                  </div>
+                  <p class="fs-7 text-muted mb-0">
+                    BMR is formulated as a linear scalar function over the domain of physical parameters \( (W, H, A, s) \in \mathbb{R}^3 \times \{+5, -161\} \).
+                  </p>
+                </div>
+              </div>
+
+              <!-- 2. TDEE Multiplier Set -->
+              <div class="col-12 col-md-4">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <h6 class="fw-bold text-main mb-2"><i class="fas fa-bolt text-emerald me-1"></i> 2. Activity Multiplier Mapping</h6>
+                  <div class="p-2 bg-white rounded border font-monospace fs-8 mb-2 text-center text-dark">
+                    \( \text{TDEE} = k \cdot \text{BMR}, \quad k \in \{1.2, 1.375, 1.55, 1.725, 1.9\} \)
+                  </div>
+                  <p class="fs-7 text-muted mb-0">
+                    Maps discrete activity level enums to scalar multipliers in finite set \( K \).
+                  </p>
+                </div>
+              </div>
+
+              <!-- 3. Heart Rate Interval Partitioning -->
+              <div class="col-12 col-md-4">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <h6 class="fw-bold text-main mb-2"><i class="fas fa-heartbeat text-danger me-1"></i> 3. Heart Rate Interval Logic</h6>
+                  <div class="p-2 bg-white rounded border font-monospace fs-8 mb-2 text-center text-danger fw-bold">
+                    \( \text{HR}_{\max} = 220 - A \implies Z_1 = [0.5 \cdot \text{HR}_{\max}, 0.7 \cdot \text{HR}_{\max}] \)
+                  </div>
+                  <p class="fs-7 text-muted mb-0">
+                    Partitions continuous pulse spectrum into discrete target training zones.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <div>&copy; 2026 <strong>BMI & Health Calculator</strong> — Discrete Mathematics Project</div>
+        <div>Version 1.0 (Step 4 Health Metrics Module)</div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/metrics.js"></script>
+</body>
+</html>

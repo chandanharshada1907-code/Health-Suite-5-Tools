@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator | BMI & Health Calculator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
+          <div>
+            <div>HealthCalc</div>
+            <div class="brand-badge">DM Project</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-category">Main Navigation</div>
+        <a href="dashboard.html" class="nav-item-link">
+          <i class="fas fa-th-large"></i> <span>Dashboard</span>
+        </a>
+        <a href="profile.html" class="nav-item-link">
+          <i class="fas fa-user"></i> <span>Profile</span>
+        </a>
+        <a href="calculator.html" class="nav-item-link active">
+          <i class="fas fa-calculator"></i> <span>BMI Calculator</span>
+        </a>
+
+        <div class="menu-category">Tracking & Data</div>
+        <a href="health-metrics.html" class="nav-item-link">
+          <i class="fas fa-notes-medical"></i> <span>Health Metrics</span>
+        </a>
+        <a href="goals.html" class="nav-item-link">
+          <i class="fas fa-bullseye"></i> <span>Goals</span>
+        </a>
+        <a href="water.html" class="nav-item-link">
+          <i class="fas fa-tint"></i> <span>Water Intake</span>
+        </a>
+        <a href="sleep.html" class="nav-item-link">
+          <i class="fas fa-bed"></i> <span>Sleep Tracker</span>
+        </a>
+        <a href="activity.html" class="nav-item-link">
+          <i class="fas fa-running"></i> <span>Activity & Fitness</span>
+        </a>
+        <a href="nutrition.html" class="nav-item-link">
+          <i class="fas fa-utensils"></i> <span>Nutrition</span>
+        </a>
+
+        <div class="menu-category">Analytics & Reports</div>
+        <a href="history.html" class="nav-item-link">
+          <i class="fas fa-history"></i> <span>History Log</span>
+        </a>
+        <a href="analytics.html" class="nav-item-link">
+          <i class="fas fa-chart-line"></i> <span>Analytics</span>
+        </a>
+        <a href="recommendations.html" class="nav-item-link">
+          <i class="fas fa-lightbulb"></i> <span>Recommendations</span>
+        </a>
+        <a href="report.html" class="nav-item-link">
+          <i class="fas fa-file-contract"></i> <span>Health Report</span>
+        </a>
+
+        <div class="menu-category">Mathematics & System</div>
+        <a href="dm-lab.html" class="nav-item-link">
+          <i class="fas fa-square-root-variable"></i> <span>DM Math Lab</span>
+        </a>
+        <a href="settings.html" class="nav-item-link">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="admin_login.html" class="dm-lab-badge text-decoration-none">
+          <i class="fas fa-user-shield text-primary"></i>
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main);">Admin Portal</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">System Control</div>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <header class="app-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="page-title-text">Body Mass Index (BMI) Calculator</h1>
+        </div>
+        <div class="header-right">
+          <div class="user-quick-profile" onclick="window.location.href='profile.html'">
+            <div class="user-avatar" id="header-user-avatar">AM</div>
+            <div class="user-info-text">
+              <div class="name" id="header-user-name">Alex Morgan</div>
+              <div class="subtext">Student User</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-body">
+        <!-- EMPTY PROFILE REQUIRED BANNER (Hidden if profile exists) -->
+        <div id="bmi-profile-required" class="custom-card text-center p-5 d-none">
+          <div class="card-icon-badge icon-amber mx-auto mb-3" style="width: 70px; height: 70px; font-size: 2rem;">
+            <i class="fas fa-id-card-clip"></i>
+          </div>
+          <h3 class="fw-extrabold text-main mb-2">Profile Required</h3>
+          <p class="text-muted fs-6 mb-4 mx-auto" style="max-width: 500px;">
+            Please complete your profile with your height and weight before calculating BMI.
+          </p>
+          <a href="profile.html" class="btn btn-primary-custom px-4 py-2 fw-bold">
+            <i class="fas fa-user-pen me-2"></i> Complete Profile
+          </a>
+        </div>
+
+        <!-- MAIN BMI CALCULATOR CONTAINER -->
+        <div id="bmi-calculator-body" class="row g-4">
+          <!-- LEFT COLUMN: Profile Specs & Input Overrides -->
+          <div class="col-12 col-lg-5">
+            <div class="custom-card h-100">
+              <div class="card-header-flex border-bottom pb-3 mb-3">
+                <h5 class="card-title-text"><i class="fas fa-user-check text-primary"></i> Current User Profile</h5>
+                <a href="profile.html" class="btn btn-sm btn-outline-custom"><i class="fas fa-pen me-1"></i> Edit</a>
+              </div>
+
+              <!-- Profile Details Display -->
+              <div class="p-3 bg-light rounded-3 border mb-3">
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted fs-7">Name:</span>
+                  <span class="fw-bold fs-7 text-main" id="bmi-user-name">Alex Morgan</span>
+                </div>
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted fs-7">Age / Gender:</span>
+                  <span class="fw-bold fs-7 text-main" id="bmi-user-age-gender">21 yrs / Male</span>
+                </div>
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted fs-7">Saved Height:</span>
+                  <span class="fw-bold fs-7 text-main" id="bmi-user-height">175 cm</span>
+                </div>
+                <div class="d-flex justify-content-between py-1">
+                  <span class="text-muted fs-7">Saved Weight:</span>
+                  <span class="fw-bold fs-7 text-main" id="bmi-user-weight">72.5 kg</span>
+                </div>
+              </div>
+
+              <!-- Calculator Inputs -->
+              <form id="bmi-form" novalidate>
+                <div class="mb-3">
+                  <label for="calc-height-cm" class="form-label fw-bold fs-7 text-main">Height (cm)</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="fas fa-ruler-vertical text-muted"></i></span>
+                    <input type="number" step="0.1" class="form-control border-start-0" id="calc-height-cm" placeholder="Height in cm" min="30" max="300" required>
+                    <span class="input-group-text bg-light fs-7 fw-semibold">cm</span>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="calc-weight-kg" class="form-label fw-bold fs-7 text-main">Weight (kg)</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="fas fa-weight-scale text-muted"></i></span>
+                    <input type="number" step="0.1" class="form-control border-start-0" id="calc-weight-kg" placeholder="Weight in kg" min="2" max="500" required>
+                    <span class="input-group-text bg-light fs-7 fw-semibold">kg</span>
+                  </div>
+                </div>
+
+                <div id="calc-error-msg" class="alert alert-danger fs-8 py-2 d-none">
+                  <i class="fas fa-circle-exclamation me-1"></i> Please enter valid height and weight greater than 0.
+                </div>
+
+                <div class="d-flex flex-column gap-2 mt-4">
+                  <button type="button" id="btn-calculate-bmi" class="btn btn-primary-custom w-100 py-2 fw-bold">
+                    <i class="fas fa-calculator me-1"></i> Calculate BMI
+                  </button>
+                  <button type="button" id="btn-save-bmi-measurement" class="btn btn-success w-100 py-2 fw-bold">
+                    <i class="fas fa-floppy-disk me-1"></i> Save Measurement
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: BMI Results, Visual Scale & Comparison -->
+          <div class="col-12 col-lg-7">
+            <!-- Main Result Card -->
+            <div class="custom-card mb-4 text-center position-relative">
+              <span class="badge bg-light text-muted border position-absolute top-0 end-0 m-3 fs-8">Standard Quetelet Metric</span>
+              
+              <div class="text-muted fs-7 text-uppercase fw-bold mb-1">Body Mass Index</div>
+              <div class="display-4 fw-extrabold text-primary mb-2" id="bmi-value-display">23.67</div>
+              
+              <!-- Category Badge (Adults) -->
+              <div class="mb-3">
+                <span id="bmi-category-badge" class="badge bg-success px-3 py-2 fs-6 fw-bold">Normal Range</span>
+              </div>
+
+              <!-- Age Under 18 Educational Notice -->
+              <div id="bmi-age-notice" class="alert alert-warning text-start fs-7 d-none mb-3 border-0 shadow-sm">
+                <i class="fas fa-triangle-exclamation me-1 text-warning"></i>
+                <strong>Age Notice:</strong> Adult BMI categories are not intended for people under 18. BMI for children and teenagers is interpreted using age- and sex-specific growth charts.
+              </div>
+
+              <!-- Values Breakdown -->
+              <div class="p-3 bg-light rounded-3 border d-flex justify-content-around fs-7 text-muted mb-2">
+                <div>Height: <strong class="text-main" id="breakdown-height">1.75 m</strong></div>
+                <div>Weight: <strong class="text-main" id="breakdown-weight">72.5 kg</strong></div>
+                <div>BMI: <strong class="text-main" id="breakdown-bmi">23.67</strong></div>
+              </div>
+
+              <div class="fs-8 text-muted">
+                Formula: \( \text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}^2} \)
+              </div>
+              <div class="fs-8 text-muted mt-1">
+                <i class="fas fa-shield-halved me-1 text-primary"></i> BMI is a screening measure and is not a diagnosis.
+              </div>
+            </div>
+
+            <!-- Visual BMI Scale Card -->
+            <div class="custom-card mb-4">
+              <div class="card-header-flex mb-3">
+                <h6 class="card-title-text fs-7"><i class="fas fa-gauge-high text-primary"></i> BMI Category Scale</h6>
+                <span class="fs-8 text-muted">Adult Reference (Ages 18+)</span>
+              </div>
+
+              <!-- Scale Bar -->
+              <div id="bmi-scale-container" class="position-relative pt-4 pb-2">
+                <!-- Scale Indicator Pointer Marker -->
+                <div id="bmi-scale-marker" class="position-absolute" style="top: 0px; left: 45%; transform: translateX(-50%); transition: left 0.4s ease;">
+                  <div class="text-center">
+                    <span class="badge bg-dark text-white fw-bold shadow-sm" id="marker-bmi-value">23.67</span>
+                    <div><i class="fas fa-caret-down text-dark fs-5"></i></div>
+                  </div>
+                </div>
+
+                <!-- Multi-segment Colored Bar -->
+                <div class="d-flex rounded-3 overflow-hidden text-white text-center fw-bold fs-8" style="height: 24px; line-height: 24px;">
+                  <div style="width: 28.3%; background-color: #3b82f6;" title="Underweight (< 18.5)">Underweight</div>
+                  <div style="width: 21.3%; background-color: #10b981;" title="Normal Range (18.5 - 24.9)">Normal</div>
+                  <div style="width: 16.7%; background-color: #f59e0b;" title="Overweight (25.0 - 29.9)">Overweight</div>
+                  <div style="width: 33.7%; background-color: #ef4444;" title="Obesity (>= 30.0)">Obesity</div>
+                </div>
+
+                <!-- Scale Numerical Legend -->
+                <div class="d-flex justify-content-between fs-8 text-muted mt-1 fw-semibold">
+                  <span>10</span>
+                  <span>18.5</span>
+                  <span>25.0</span>
+                  <span>30.0</span>
+                  <span>40+</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Previous vs Current Comparison Card -->
+            <div class="custom-card">
+              <div class="card-header-flex mb-2">
+                <h6 class="card-title-text fs-7"><i class="fas fa-code-compare text-info"></i> Measurement Comparison</h6>
+                <span class="fs-8 text-muted" id="comparison-time">Saved Measurements</span>
+              </div>
+
+              <div id="bmi-comparison-body" class="p-3 bg-light rounded-3 border">
+                <div class="row text-center align-items-center g-2">
+                  <div class="col-4 border-end">
+                    <div class="fs-8 text-muted">Previous Saved</div>
+                    <div class="fw-bold fs-6 text-main" id="prev-bmi-val">--</div>
+                  </div>
+                  <div class="col-4 border-end">
+                    <div class="fs-8 text-muted">Current Calculation</div>
+                    <div class="fw-bold fs-6 text-primary" id="curr-bmi-val">23.67</div>
+                  </div>
+                  <div class="col-4">
+                    <div class="fs-8 text-muted">Difference</div>
+                    <div class="fw-bold fs-6" id="diff-bmi-val">--</div>
+                  </div>
+                </div>
+                <p class="fs-7 text-muted mt-2 mb-0 text-center" id="comparison-note">
+                  No previous BMI measurement available. Click "Save Measurement" to store your record.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FULL WIDTH: MATHEMATICS BEHIND BMI -->
+          <div class="col-12">
+            <div class="custom-card">
+              <div class="card-header-flex border-bottom pb-3 mb-4">
+                <div>
+                  <h5 class="card-title-text"><i class="fas fa-square-root-variable text-primary me-2"></i> Mathematics Behind BMI</h5>
+                  <p class="text-muted fs-7 mb-0">Discrete mathematical formalization, functional representation, and logic mapping.</p>
+                </div>
+                <span class="badge bg-primary-subtle text-primary fw-bold">Discrete Math Model</span>
+              </div>
+
+              <div class="row g-4">
+                <!-- 1. Function Representation -->
+                <div class="col-12 col-md-6">
+                  <div class="p-3 bg-light rounded-3 border h-100">
+                    <h6 class="fw-bold text-main mb-2"><i class="fas fa-function text-primary me-1"></i> 1. Functional Representation</h6>
+                    <div class="p-2 bg-white rounded border font-monospace fs-7 mb-2 text-center text-primary fw-bold">
+                      \( \text{BMI} = f(W, H) = \frac{W}{H^2} \)
+                    </div>
+                    <p class="fs-7 text-muted mb-0">
+                      BMI is modeled as a deterministic function \( f: \mathbb{R}^+ \times \mathbb{R}^+ \to \mathbb{R}^+ \) mapping weight \( W \) (kg) and height \( H \) (m) to a unique scalar body mass index value.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 2. Arithmetic Operations -->
+                <div class="col-12 col-md-6">
+                  <div class="p-3 bg-light rounded-3 border h-100">
+                    <h6 class="fw-bold text-main mb-2"><i class="fas fa-calculator text-amber me-1"></i> 2. Arithmetic Operations</h6>
+                    <ul class="fs-7 text-muted mb-0 ps-3">
+                      <li><strong>Unit Conversion:</strong> \( H(\text{m}) = \frac{H(\text{cm})}{100} \)</li>
+                      <li><strong>Exponentiation:</strong> Height is squared (\( H^2 \)) to scale mass relative to body surface area.</li>
+                      <li><strong>Division:</strong> Weight is divided by squared height (\( W / H^2 \)).</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 3. Relation & Mapping -->
+                <div class="col-12 col-md-6">
+                  <div class="p-3 bg-light rounded-3 border h-100">
+                    <h6 class="fw-bold text-main mb-2"><i class="fas fa-diagram-project text-success me-1"></i> 3. Discrete Mathematical Relation</h6>
+                    <div class="p-2 bg-white rounded border font-monospace fs-7 mb-2 text-center text-dark">
+                      \( (W, H) \xrightarrow{\quad f \quad} \text{BMI Value} \xrightarrow{\quad \text{Mapping} \quad} \text{Category Set } S_k \)
+                    </div>
+                    <p class="fs-7 text-muted mb-0">
+                      The output codomain is partitioned into mutually disjoint reference subsets:
+                      \( S_1 \cup S_2 \cup S_3 \cup S_4 = \mathbb{R}^+ \) and \( S_i \cap S_j = \emptyset \).
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 4. Propositional Logic Ladder -->
+                <div class="col-12 col-md-6">
+                  <div class="p-3 bg-light rounded-3 border h-100">
+                    <h6 class="fw-bold text-main mb-2"><i class="fas fa-code-branch text-secondary me-1"></i> 4. Propositional Classification Logic</h6>
+                    <div class="font-monospace fs-8 p-2 bg-white rounded border text-muted">
+                      <strong>IF</strong> Age &ge; 18:<br>
+                      &nbsp;&nbsp;<strong>IF</strong> BMI &lt; 18.5 &rarr; Underweight<br>
+                      &nbsp;&nbsp;<strong>ELSE IF</strong> BMI &lt; 25.0 &rarr; Normal Range<br>
+                      &nbsp;&nbsp;<strong>ELSE IF</strong> BMI &lt; 30.0 &rarr; Overweight<br>
+                      &nbsp;&nbsp;<strong>ELSE</strong> &rarr; Obesity<br>
+                      <strong>ELSE</strong> &rarr; Pediatric Growth Charts Required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <div>&copy; 2026 <strong>BMI & Health Calculator</strong> — Discrete Mathematics Project</div>
+        <div>Version 1.0 (Step 3 BMI Calculator Module)</div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/calculator.js"></script>
+</body>
+</html>

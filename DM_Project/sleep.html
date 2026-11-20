@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Tracker | BMI & Health Calculator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
+          <div>
+            <div>HealthCalc</div>
+            <div class="brand-badge">DM Project</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-category">Main Navigation</div>
+        <a href="dashboard.html" class="nav-item-link">
+          <i class="fas fa-th-large"></i> <span>Dashboard</span>
+        </a>
+        <a href="profile.html" class="nav-item-link">
+          <i class="fas fa-user"></i> <span>Profile</span>
+        </a>
+        <a href="calculator.html" class="nav-item-link">
+          <i class="fas fa-calculator"></i> <span>BMI Calculator</span>
+        </a>
+
+        <div class="menu-category">Tracking & Data</div>
+        <a href="health-metrics.html" class="nav-item-link">
+          <i class="fas fa-notes-medical"></i> <span>Health Metrics</span>
+        </a>
+        <a href="goals.html" class="nav-item-link">
+          <i class="fas fa-bullseye"></i> <span>Goals</span>
+        </a>
+        <a href="water.html" class="nav-item-link">
+          <i class="fas fa-tint"></i> <span>Water Intake</span>
+        </a>
+        <a href="sleep.html" class="nav-item-link active">
+          <i class="fas fa-bed"></i> <span>Sleep Tracker</span>
+        </a>
+        <a href="activity.html" class="nav-item-link">
+          <i class="fas fa-running"></i> <span>Activity & Fitness</span>
+        </a>
+        <a href="nutrition.html" class="nav-item-link">
+          <i class="fas fa-utensils"></i> <span>Nutrition</span>
+        </a>
+
+        <div class="menu-category">Analytics & Reports</div>
+        <a href="history.html" class="nav-item-link">
+          <i class="fas fa-history"></i> <span>History Log</span>
+        </a>
+        <a href="analytics.html" class="nav-item-link">
+          <i class="fas fa-chart-line"></i> <span>Analytics</span>
+        </a>
+        <a href="recommendations.html" class="nav-item-link">
+          <i class="fas fa-lightbulb"></i> <span>Recommendations</span>
+        </a>
+        <a href="report.html" class="nav-item-link">
+          <i class="fas fa-file-contract"></i> <span>Health Report</span>
+        </a>
+
+        <div class="menu-category">Mathematics & System</div>
+        <a href="dm-lab.html" class="nav-item-link">
+          <i class="fas fa-square-root-variable"></i> <span>DM Math Lab</span>
+        </a>
+        <a href="settings.html" class="nav-item-link">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="admin_login.html" class="dm-lab-badge text-decoration-none">
+          <i class="fas fa-user-shield text-primary"></i>
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main);">Admin Portal</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">System Control</div>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <header class="app-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="page-title-text">Sleep Quality & Duration Tracker</h1>
+        </div>
+        <div class="header-right">
+          <div class="user-quick-profile" onclick="window.location.href='profile.html'">
+            <div class="user-avatar" id="header-user-avatar">AM</div>
+            <div class="user-info-text">
+              <div class="name" id="header-user-name">Alex Morgan</div>
+              <div class="subtext">Student User</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-body">
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-md-4">
+            <div class="custom-card text-center">
+              <div class="card-icon-badge icon-primary mx-auto mb-2"><i class="fas fa-moon"></i></div>
+              <div class="fs-7 text-muted fw-bold">Last Night's Sleep</div>
+              <div class="display-6 fw-extrabold text-primary">7.2 hrs</div>
+              <span class="badge bg-success-subtle text-success fw-bold">Sleep Score: 85/100</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="custom-card text-center">
+              <div class="card-icon-badge icon-emerald mx-auto mb-2"><i class="fas fa-chart-pie"></i></div>
+              <div class="fs-7 text-muted fw-bold">Deep Sleep Ratio</div>
+              <div class="display-6 fw-extrabold text-success">1.8 hrs</div>
+              <span class="badge bg-light text-muted border">25% Optimal Deep</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="custom-card text-center">
+              <div class="card-icon-badge icon-amber mx-auto mb-2"><i class="fas fa-clock"></i></div>
+              <div class="fs-7 text-muted fw-bold">Target Consistency</div>
+              <div class="display-6 fw-extrabold text-warning">90%</div>
+              <span class="badge bg-light text-muted border">Goal: 8.0 hrs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <div class="card-header-flex">
+            <h5 class="card-title-text"><i class="fas fa-plus text-primary"></i> Log Sleep Log Entry</h5>
+          </div>
+          <form onsubmit="event.preventDefault(); showToast('Sleep log saved!', 'success');">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label fs-7 fw-semibold">Bedtime</label>
+                <input type="time" class="form-control" value="23:30">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fs-7 fw-semibold">Wake-up Time</label>
+                <input type="time" class="form-control" value="06:42">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fs-7 fw-semibold">Sleep Quality</label>
+                <select class="form-select">
+                  <option value="excellent">Excellent (Refreshed)</option>
+                  <option value="good" selected>Good (Restful)</option>
+                  <option value="fair">Fair (Slightly Tired)</option>
+                  <option value="poor">Poor (Restless)</option>
+                </select>
+              </div>
+            </div>
+            <div class="mt-3 text-end">
+              <button type="submit" class="btn btn-primary-custom"><i class="fas fa-save me-1"></i> Record Sleep</button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <div>&copy; 2026 <strong>BMI & Health Calculator</strong> — Discrete Mathematics Project</div>
+        <div>Version 1.0 (Step 1 Foundation)</div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/sleep.js"></script>
+</body>
+</html>
